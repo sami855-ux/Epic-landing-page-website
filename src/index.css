@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: poppins;
+  src: url(../font/Poppins-Regular.ttf);
+}
+
+* {
+  @apply text-gray-700;
+  font-family: poppins;
+}
