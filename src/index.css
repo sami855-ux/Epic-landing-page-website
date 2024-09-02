@@ -11,3 +11,14 @@
   @apply text-gray-700;
   font-family: poppins;
 }
+.hero-wrapper {
+  width: 100vw;
+  height: calc(100vh - 60px);
+  background-image: url(../public/img/img8.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.word-spa {
+  word-spacing: 11px;
+}
