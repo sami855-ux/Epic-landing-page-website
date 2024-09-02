@@ -1,5 +1,7 @@
 import PropTypes from "prop-types"
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
+import imageData from "./imgDate-1"
+import { useState } from "react"
 
 function Details() {
   return (
@@ -57,42 +59,74 @@ function DisplayTime({ time, status }) {
 }
 
 function DealsImage() {
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  const handelPer = () => {
+    setCurrentSlide((curr) => (curr === 0 ? imageData.length - 1 : curr - 1))
+  }
+
+  const handelNext = () => {
+    setCurrentSlide((curr) => (curr === imageData.length - 1 ? 0 : curr + 1))
+  }
+
   return (
     <div className="w-[900px] h-full  flex">
-      <Btns />
-      <ImageWrapper />
+      <Btns onPerv={handelPer} onNext={handelNext} />
+      <ImageWrapper dealsImages={imageData} currentSlide={currentSlide} />
     </div>
   )
 }
 
-function Btns() {
+Btns.propTypes = {
+  onPerv: PropTypes.func,
+  onNext: PropTypes.func,
+}
+
+function Btns({ onNext, onPerv }) {
   return (
     <section className="w-32 h-full  flex items-end justify-center py-2 space-x-2">
-      <span className="w-10 h-10 rounded-full bg-slate-100 shadow-md flex justify-center items-center cursor-pointer">
+      <span
+        className="w-10 h-10 rounded-full bg-slate-100 shadow-md flex justify-center items-center cursor-pointer"
+        onClick={onPerv}
+      >
         <FaAngleLeft size={25} />
       </span>
-      <span className="w-10 h-10 rounded-full bg-slate-100 shadow-md flex justify-center items-center cursor-pointer">
+      <span
+        className="w-10 h-10 rounded-full bg-slate-100 shadow-md flex justify-center items-center cursor-pointer"
+        onClick={onNext}
+      >
         <FaAngleRight size={25} />
       </span>
     </section>
   )
 }
 
-function ImageWrapper() {
+ImageWrapper.propTypes = {
+  dealsImages: PropTypes.array,
+  currentSlide: PropTypes.number,
+}
+
+function ImageWrapper({ dealsImages, currentSlide }) {
   return (
     <>
-      <div className="w-[350px] h-full relative ">
-        <img
-          src="public/img/shoe6.jfif"
-          alt="Clothe-One"
-          className="w-full h-full object-cover"
-        />
-        <section className="w-[220px] h-36 bg-slate-100 absolute bottom-5 left-5 rounded-md p-4">
-          <h2 className="text-lg pb-7 text-gray-800 font-thin">
-            01 ----- Spring Safe
-          </h2>
-          <span className="text-4xl ">30% OFF</span>
-        </section>
+      <div className="w-[350px] h-full ">
+        {dealsImages.map((img, i) => {
+          return currentSlide === i ? (
+            <div className="w-full h-full relative" key={img.id}>
+              <img
+                src={img.imgPath}
+                alt={img.alt}
+                className="w-full h-full object-contain"
+              />
+              <section className="w-[220px] h-36 bg-slate-100 absolute bottom-5 left-5 rounded-md p-4">
+                <h2 className="text-lg pb-7 text-gray-800 font-thin">
+                  {`${i + 1}`.padStart(2, 0)} ----- {img.title}
+                </h2>
+                <span className="text-4xl ">{`${img.off}%`} OFF</span>
+              </section>
+            </div>
+          ) : null
+        })}
       </div>
 
       <div className="w-[380px] h-full flex flex-col  ml-5">
