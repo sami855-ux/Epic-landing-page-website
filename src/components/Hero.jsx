@@ -1,4 +1,3 @@
-import PropTypes from "prop-types"
 import { BsStarFill } from "react-icons/bs"
 
 function Hero() {
