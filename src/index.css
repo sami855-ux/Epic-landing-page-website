@@ -11,6 +11,10 @@
   @apply text-gray-700;
   font-family: poppins;
 }
+*::-webkit-scrollbar {
+  width: 0;
+  color: #cfcf39;
+}
 .hero-wrapper {
   width: 100vw;
   height: calc(100vh - 60px);
@@ -21,4 +25,10 @@
 }
 .word-spa {
   word-spacing: 11px;
+}
+#access-wrapper {
+  background-image: url(./img/img1.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

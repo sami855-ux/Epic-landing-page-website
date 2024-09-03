@@ -90,13 +90,13 @@ function Btns({ onNext, onPerv }) {
         className="w-10 h-10 rounded-full bg-slate-100 shadow-md flex justify-center items-center cursor-pointer"
         onClick={onPerv}
       >
-        <FaAngleLeft size={25} />
+        <FaAngleLeft size={20} />
       </span>
       <span
         className="w-10 h-10 rounded-full bg-slate-100 shadow-md flex justify-center items-center cursor-pointer"
         onClick={onNext}
       >
-        <FaAngleRight size={25} />
+        <FaAngleRight size={20} />
       </span>
     </section>
   )
@@ -128,10 +128,10 @@ function ImageWrapper({ dealsImages, currentSlide }) {
                 className="w-full h-full object-contain"
               />
               <section className="w-[220px] h-36 bg-slate-100 absolute bottom-5 left-5 rounded-md p-4">
-                <h2 className="text-lg pb-7 text-gray-800 font-thin">
-                  {`${i + 1}`.padStart(2, 0)} ----- {img.title}
+                <h2 className=" pb-7 text-gray-800  text-base font-semibold">
+                  {`${i + 1}`.padStart(2, 0)} - {img.title}
                 </h2>
-                <span className="text-4xl ">{`${img.off}%`} OFF</span>
+                <span className="text-4xl font-serif">{`${img.off}%`} OFF</span>
               </section>
             </div>
           ) : null
@@ -165,7 +165,7 @@ function ImageWrapper({ dealsImages, currentSlide }) {
                 key={i}
                 onClick={(e) => handelCurrSlideTwo(i)}
               >
-                <button className="w-2 h-2 rounded-full bg-gray-900"></button>
+                <button className="w-[8px] h-[8px] rounded-full bg-gray-900"></button>
               </span>
             )
           })}

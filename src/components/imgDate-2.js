@@ -1,14 +1,15 @@
 const ImageDateTwo = [
   {
-    id: "111",
-    imgPath: "public/img/cloth7.jfif",
-    alt: "Shoe-image One",
-  },
-  {
     id: "222",
     imgPath: "public/img/cloth9.jfif",
     alt: "Shoe-image Two",
   },
+  {
+    id: "111",
+    imgPath: "public/img/cloth7.jfif",
+    alt: "Shoe-image One",
+  },
+
   {
     id: "333",
     imgPath: "public/img/cloth10.jfif",

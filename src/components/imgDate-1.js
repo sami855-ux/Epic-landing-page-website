@@ -1,5 +1,12 @@
 const images = [
   {
+    id: "333",
+    imgPath: "./img/shoe4.jfif",
+    alt: "Shoe-image Three",
+    title: "Kenyan Shoes",
+    off: "30",
+  },
+  {
     id: "111",
     imgPath: "./img/shoe2.jfif",
     alt: "Shoe-image One",
@@ -13,13 +20,7 @@ const images = [
     title: "Best Shoes in Australia",
     off: "21",
   },
-  {
-    id: "333",
-    imgPath: "./img/shoe4.jfif",
-    alt: "Shoe-image Three",
-    title: "Kenyan Shoes",
-    off: "30",
-  },
+
   {
     id: "444",
     imgPath: "./img/shoe5.jfif",
