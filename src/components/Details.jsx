@@ -1,6 +1,7 @@
 import PropTypes from "prop-types"
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
 import imageData from "./imgDate-1"
+import imageDateTwo from "./imgDate-2"
 import { useState } from "react"
 
 function Details() {
@@ -107,12 +108,20 @@ ImageWrapper.propTypes = {
 }
 
 function ImageWrapper({ dealsImages, currentSlide }) {
+  const [currslideTwo, setCurrslideTwo] = useState(0)
+
+  const handelCurrSlideTwo = (index) => {
+    setCurrslideTwo(index)
+  }
   return (
     <>
       <div className="w-[350px] h-full ">
         {dealsImages.map((img, i) => {
           return currentSlide === i ? (
-            <div className="w-full h-full relative" key={img.id}>
+            <div
+              className="w-full h-full relative transition-all duration-300 ease-in-out"
+              key={img.id}
+            >
               <img
                 src={img.imgPath}
                 alt={img.alt}
@@ -129,30 +138,41 @@ function ImageWrapper({ dealsImages, currentSlide }) {
         })}
       </div>
 
-      <div className="w-[380px] h-full flex flex-col  ml-5">
+      <div className="w-[350px] h-full flex flex-col  ml-5">
         <div className="w-full h-[80%] bg-slate-100">
-          <img
-            src="public/img/cloth10.jfif"
-            alt=""
-            className="w-full h-full mix-blend-plus-darker"
-          />
+          {imageDateTwo.map((img, i) => {
+            return (
+              <img
+                style={
+                  currslideTwo === i
+                    ? { display: "block" }
+                    : { display: "none" }
+                }
+                src={img.imgPath}
+                alt={img.alt}
+                className="w-full h-full mix-blend-plus-darker"
+                key={img.id}
+              />
+            )
+          })}
         </div>
         <section className="w-full h-16 flex space-x-2 items-end">
-          <span className="w-6 h-6 rounded-full flex justify-center items-center border border-gray-900">
-            <button className="w-2 h-2 rounded-full bg-gray-900"></button>
-          </span>
-          <span className="w-6 h-6 rounded-full flex justify-center items-center  border-gray-900">
-            <button className="w-2 h-2 rounded-full bg-gray-900"></button>
-          </span>
-          <span className="w-6 h-6 rounded-full flex justify-center items-center  border-gray-900">
-            <button className="w-2 h-2 rounded-full bg-gray-900"></button>
-          </span>
-          <span className="w-6 h-6 rounded-full flex justify-center items-center  border-gray-900">
-            <button className="w-2 h-2 rounded-full bg-gray-900"></button>
-          </span>
+          {imageDateTwo.map((_, i) => {
+            return (
+              <span
+                style={currslideTwo === i ? { border: "1px solid #222" } : null}
+                className="w-6 h-6 rounded-full flex justify-center items-center border-gray-900 cursor-pointer"
+                key={i}
+                onClick={(e) => handelCurrSlideTwo(i)}
+              >
+                <button className="w-2 h-2 rounded-full bg-gray-900"></button>
+              </span>
+            )
+          })}
         </section>
       </div>
     </>
   )
 }
+
 export default Details
