@@ -13,7 +13,7 @@ function Arrival() {
   }
 
   return (
-    <div className="w-screen min-h-screen flex items-center flex-col bg-slate-50 pt-8">
+    <div className="w-screen min-h-screen flex items-center flex-col bg-slate-50 py-8">
       <h2 className="font-semibold text-4xl py-4 text-gray-800 font-serif">
         New Arrival
       </h2>
@@ -54,7 +54,7 @@ function Arrival() {
         />
       </section>
 
-      <div className="w-[77vw] min-h-[100vh] flex flex-wrap gap-14   ">
+      <div className="w-[77vw] min-h-[100vh] flex flex-wrap gap-14   transition-all duration-100 ease-in-out ">
         {filterImageData && filterImageData.length > 0 ? (
           filterImageData.map((img, i) => (
             <Card
