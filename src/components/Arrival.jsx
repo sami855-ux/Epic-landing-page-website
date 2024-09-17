@@ -13,7 +13,7 @@ function Arrival() {
   }
 
   return (
-    <div className="w-screen min-h-screen flex items-center flex-col bg-slate-50 py-8">
+    <div className="w-screen min-h-screen flex items-center flex-col  py-8">
       <h2 className="font-semibold text-4xl py-4 text-gray-800 font-serif">
         New Arrival
       </h2>
@@ -65,7 +65,7 @@ function Arrival() {
               price={img.price}
               manufaPlace={img.manufaPlace}
               imagePath={img.imagePath}
-              key={img.id}
+              key={i}
             />
           ))
         ) : (
