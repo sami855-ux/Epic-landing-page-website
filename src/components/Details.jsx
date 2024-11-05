@@ -1,8 +1,9 @@
+import { useState } from "react"
 import PropTypes from "prop-types"
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
+
 import imageData from "./imgDate-1"
 import imageDateTwo from "./imgDate-2"
-import { useState } from "react"
 
 function Details() {
   return (
