@@ -108,7 +108,7 @@ Card.propTypes = {
   manufaPlace: PropTypes.string,
   imagePath: PropTypes.string,
 }
-//"public/img/cloth9.jfif"Skinny Coat
+
 function Card({
   title,
   designer,
@@ -119,7 +119,7 @@ function Card({
   imagePath,
 }) {
   return (
-    <div className="w-[310px] h-[320px] bg-slate-100 shadow-md shadow-slate-200 px-4 py-2">
+    <div className="w-[350px] h-[370px] bg-slate-100 shadow-md shadow-slate-200 px-4 py-2">
       <img
         src={imagePath}
         alt="Clothe num one"
@@ -139,7 +139,7 @@ function Card({
           ({quantity}x) Custmore Framework
         </p>
         <div className="w-full flex items-center pt-5 space-x-20">
-          <span className="text-2xl font-semibold">${price.toFixed(2)}</span>
+          <span className="text-sm font-semibold">${price.toFixed(2)}</span>
           <span className="text-red-500 font-semibold text-xs">
             {manufaPlace}
           </span>
